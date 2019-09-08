@@ -66,7 +66,7 @@ This is the “bread and butter” of the app, this is what makes your app yours
 >   - _(v2 Friend’s approved Libs)_
 > - _(v2 View other accounts and send friend requests)_
 > - _(v2 Send friend requests directly by using their email address.)_
-> - View Libs by category (all, <category1>, <category 2>, etc.) _(v2 sort by latest, top rated, etc.)_
+> - View Libs by category (all, <category 1>, <category 2>, etc.) _(v2 sort by latest, top rated, etc.)_
 > - Choose a Lib from the list and add to your account with your answers to it.
 > - Submit a new Lib to the list and assign it the correct category from the available list.
 > - Request to have a new LibCategory added through mod approval.
