@@ -1,4 +1,4 @@
-# backend-auth
+# DevLibs - Backend - Auth repo
 
 ## Proposal:
 
