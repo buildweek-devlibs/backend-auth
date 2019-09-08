@@ -11,7 +11,7 @@ Being as specific as possible, how does your app solve the problem?
 > Give the dev a list of possible prompts and allow them to submit new ones easily. Completed prompts show on their profile and can be posted to Twitter.
 
 What is the mission statement?
-Make something that works!!! And try not to start a [holy war](testhttp://www.catb.org/jargon/html/H/holy-wars.html) through the power of randomness!
+Make something that works!!! And try not to start a [holy war](http://www.catb.org/jargon/html/H/holy-wars.html) through the power of randomness!
 
 ## Features:
 
