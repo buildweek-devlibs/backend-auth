@@ -4,8 +4,9 @@
   "description": "User Authentication and authorization system for DevLibs project.",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "server": "nodemon index.js",
-    "test": "npx knex --env testing migrate:rollback --all && npx knex --env testing migrate:latest && cross-env DB_ENV=testing jest --runInBand --detectOpenHandles --forceExit"
+    "test": "npx knex --env testing migrate:rollback --all && npx knex --env testing migrate:latest && npx knex --env testing seed:run && cross-env DB_ENV=testing jest --runInBand --detectOpenHandles --forceExit"
   },
   "repository": {
     "type": "git",
