@@ -15,9 +15,12 @@ exports.up = function(knex) {
       c.string('password', 255).notNullable();
       c.integer('permission_id')
         .unsigned()
-        .defaultTo(1)
+        .defaultTo(1);
+      c.foreign('permission_id')
         .references('permission_id')
-        .inTable('permissions');
+        .inTable('permissions')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE');
     });
 };
 

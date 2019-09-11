@@ -1,30 +1,33 @@
 const db = require('../data/dbConfig.js');
+const tbl = 'sessions';
 
-const sessionModel = (module.exports = {});
+const sModel = (module.exports = {});
 
-sessionModel.find = function(id) {
-  if (id)
-    return db('sessions')
-      .where('session_id', id)
+sModel.find = function(session_id) {
+  if (session_id)
+    return db(tbl)
+      .where({ session_id })
       .first();
-  else return db('sessions');
+  else return db(tbl);
 };
 
-sessionModel.findBy = function(filter) {
-  return db('sessions').where(filter);
+sModel.insert = function(session) {
+  return db(tbl)
+    .insert(session)
+    .then(([session_id]) => this.find(session_id));
 };
 
-sessionModel.insert = async function(session) {
-  const [id] = await db('session').insert(session, 'session_id');
-  return sessionModel.find(id);
-};
-
-sessionModel.remove = async function(id) {
-  const deletedSession = await sessionModel.find(id);
-  const deleted = await db('sessions')
-    .where('session_id', id)
+sModel.remove = function(session_id) {
+  return db(tbl)
+    .where({ session_id })
     .first()
     .del();
+};
 
-  if (deleted) return deletedSession;
+sModel.update = function(session_id, session) {
+  return db(tbl)
+    .where({ session_id })
+    .first()
+    .update(session)
+    .then(() => this.find(session_id));
 };
