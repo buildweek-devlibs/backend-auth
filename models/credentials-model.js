@@ -11,6 +11,10 @@ cModel.find = function(credential_id) {
   else return db(tbl);
 };
 
+cModel.findBy = function(filter) {
+  return db(tbl).where(filter);
+};
+
 cModel.insert = function(credential) {
   return db(tbl)
     .insert(credential)
