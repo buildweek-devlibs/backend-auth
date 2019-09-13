@@ -7,10 +7,10 @@ const sModel = require('../models/sessions-model.js');
 
 const authController = (module.exports = {});
 
-authController.register = async (req, res) => {
+authController.register = async (req, res, next) => {
   try {
     const credentials = req.body;
-    checkCredentials(credentials);
+    checkCredentials(credentials, res);
 
     const hash = bcrypt.hashSync(credentials.password, 12);
     credentials.password = hash;
@@ -24,26 +24,23 @@ authController.register = async (req, res) => {
           credential_id: registrationSuccess.credential_id,
         });
     } catch (err) {
-      res.status(500).json({
-        success: false,
-        message: `Registration failed.\n${err}`,
-      });
+      next(err);
     }
   } catch (err) {
-    res.status(500).json({
-      success: false,
-      message: `Fatal Error.\n${err}`,
-    });
+    next(err);
   }
 };
 
-authController.login = async (req, res) => {
+authController.login = async (req, res, next) => {
   try {
     const loginAttempt = req.body;
-    checkCredentials(loginAttempt);
+    checkCredentials(loginAttempt, res);
 
-    const credentials = await cModel.findBy(credentials.username);
-
+    const credentials = await cModel
+      .findBy({
+        username: loginAttempt.username,
+      })
+      .first();
     if (credentials) {
       if (bcrypt.compareSync(loginAttempt.password, credentials.password)) {
         const token = genToken(credentials);
@@ -59,11 +56,8 @@ authController.login = async (req, res) => {
               message: `Login Successful. Welcome ${credentials.username}`,
               session,
             });
-        } catch (error) {
-          res.status(500).json({
-            success: false,
-            message: `Unable to create session.`,
-          });
+        } catch (err) {
+          next(err);
         }
       } else {
         res.status(401).json({
@@ -78,16 +72,13 @@ authController.login = async (req, res) => {
       });
     }
   } catch (err) {
-    res.status(500).json({
-      success: false,
-      message: `Fatal Error.\n${err}`,
-    });
+    next(err);
   }
 };
 
-authController.verify = async (req, res) => {
+authController.verify = async (req, res, next) => {
   try {
-    const storedSession = await sModel.find(req.session.session_id);
+    const storedSession = await sModel.find(req.body.session.session_id);
     storedSession.isValid
       ? res.status(200).json({
           success: true,
@@ -98,16 +89,13 @@ authController.verify = async (req, res) => {
           message: `Session is no longer valid.`,
         });
   } catch (err) {
-    res.status(500).json({
-      success: false,
-      message: `Fatal Error.\n${err}`,
-    });
+    next(err);
   }
 };
 
-authController.logout = async (req, res) => {
+authController.logout = async (req, res, next) => {
   try {
-    const storedSession = await sModel.find(req.session.session_id);
+    const storedSession = await sModel.find(req.body.session.session_id);
     if (storedSession.isValid) {
       try {
         await sModel.update(storedSession.session_id, {
@@ -118,11 +106,8 @@ authController.logout = async (req, res) => {
           success: true,
           message: `Successfully logged out.`,
         });
-      } catch (error) {
-        res.status(500).json({
-          success: false,
-          message: `Unable to log out.\n${err}`,
-        });
+      } catch (err) {
+        next(err);
       }
     } else {
       res.status(400).json({
@@ -131,15 +116,20 @@ authController.logout = async (req, res) => {
       });
     }
   } catch (err) {
-    res.status(500).json({
-      success: false,
-      message: `Fatal Error.\n${err}`,
-    });
+    next(err);
   }
 };
 
+authController.errorHandler = (err, req, res, next) => {
+  // console.error(err.stack);
+  res.status(500).json({
+    success: false,
+    message: `Fatal Error.\n${err}`,
+  });
+};
+
 /* HELPER FUNCTIONS */
-function checkCredentials(credentials) {
+function checkCredentials(credentials, res) {
   (!credentials.username || !credentials.password) &&
     res.status(400).json({
       success: false,

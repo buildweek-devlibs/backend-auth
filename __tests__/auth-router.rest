@@ -1,0 +1,116 @@
+POST http://localhost:4000/register
+Content-Type: application/json
+
+{
+  "password": "password"
+}
+
+# RESPONSE BODY:
+# {
+#   "success":false,
+#   "message":"Invalid request.\nMust contain username and password."
+# }
+
+
+POST http://localhost:4000/register
+Content-Type: application/json
+
+{
+  "username": "testAccount1"
+}
+
+# RESPONSE BODY:
+# {
+#   "success":false,
+#   "message":"Invalid request.\nMust contain username and password."
+# }
+
+
+POST http://localhost:4000/register
+Content-Type: application/json
+
+{
+  "username": "testAccount1",
+  "password": "password"
+}
+
+#  RESPONSE BODY:
+# {
+#   "success":true,
+#   "message":"Registration successful.",
+#   "credential_id":1
+# }
+
+
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+  "username": "testAccount1",
+  "password": "password"
+}
+
+# RESPONSE BODY:
+# {
+#   "success":true,
+#   "message":"Login Successful. Welcome testAccount1",
+#   "session":{
+#     "session_id":1,
+#     "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoiY3JlZGVudGlhbHMiLCJjcmVkZW50aWFsX2lkIjoxLCJpYXQiOjE1NjgzNTQyNjYsImV4cCI6MTU2ODM1Nzg2Nn0.h0MP2fNqb6N3jO_vuJPhB8UZSRV-PX9F8lV8vb8M_Ww",
+#     "isValid":1
+#   }
+# }
+
+
+POST http://localhost:4000/verify
+Content-Type: application/json
+
+{
+  "session":{
+    "session_id":1,
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoiY3JlZGVudGlhbHMiLCJjcmVkZW50aWFsX2lkIjoxLCJpYXQiOjE1NjgzNTQyNjYsImV4cCI6MTU2ODM1Nzg2Nn0.h0MP2fNqb6N3jO_vuJPhB8UZSRV-PX9F8lV8vb8M_Ww",
+    "isValid":1
+  }
+}
+
+# RESPONSE BODY:
+# {
+#   "success": true,
+#   "message": "Session is still valid."
+# }
+
+
+POST http://localhost:4000/logout
+Content-Type: application/json
+
+{
+  "session":{
+    "session_id":1,
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoiY3JlZGVudGlhbHMiLCJjcmVkZW50aWFsX2lkIjoxLCJpYXQiOjE1NjgzNTQyNjYsImV4cCI6MTU2ODM1Nzg2Nn0.h0MP2fNqb6N3jO_vuJPhB8UZSRV-PX9F8lV8vb8M_Ww",
+    "isValid":1
+  }
+}
+
+# RESPONSE BODY:
+# {
+#   "success": true,
+#   "message": "Successfully logged out."
+# }
+
+
+POST http://localhost:4000/verify
+Content-Type: application/json
+
+{
+  "session":{
+    "session_id":1,
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoiY3JlZGVudGlhbHMiLCJjcmVkZW50aWFsX2lkIjoxLCJpYXQiOjE1NjgzNTQyNjYsImV4cCI6MTU2ODM1Nzg2Nn0.h0MP2fNqb6N3jO_vuJPhB8UZSRV-PX9F8lV8vb8M_Ww",
+    "isValid":1
+  }
+}
+
+# RESPONSE BODY:
+# {
+#   "success": false,
+#   "message": "Session is no longer valid."
+# }

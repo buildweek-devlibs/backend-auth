@@ -10,12 +10,13 @@ exports.up = function(knex) {
       p.string('name', 255);
     })
     .createTable('credentials', (c) => {
-      c.increments('user_id');
+      c.increments('credential_id');
       c.string('username', 255).notNullable();
       c.string('password', 255).notNullable();
       c.integer('permission_id')
         .unsigned()
         .defaultTo(1);
+      c.unique('username');
       c.foreign('permission_id')
         .references('permission_id')
         .inTable('permissions')
@@ -24,4 +25,9 @@ exports.up = function(knex) {
     });
 };
 
-exports.down = function(knex) {};
+exports.down = function(knex) {
+  return knex.schema
+    .dropTableIfExists('credentials')
+    .dropTableIfExists('permissions')
+    .dropTableIfExists('sessions');
+};

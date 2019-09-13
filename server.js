@@ -2,7 +2,7 @@ const express = require('express');
 const helmet = require('helmet');
 const morgan = require('morgan');
 
-// const authRouter = require('./routers/auth-router.js');
+const authRouter = require('./routers/auth-router.js');
 
 const server = express();
 
@@ -10,7 +10,7 @@ server.use(helmet());
 server.use(morgan('dev'));
 server.use(express.json());
 
-// server.use('/', authRouter);
+server.use('/', authRouter);
 
 server.get('/', (req, res) => {
   res.send(`
