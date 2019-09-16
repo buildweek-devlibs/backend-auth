@@ -13,6 +13,7 @@ exports.up = function(knex) {
       c.increments('credential_id');
       c.string('username', 255).notNullable();
       c.string('password', 255).notNullable();
+      c.integer('user_id').unsigned();
       c.integer('permission_id')
         .unsigned()
         .defaultTo(1);
