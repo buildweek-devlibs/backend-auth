@@ -1,5 +1,9 @@
 # DevLibs - Backend - Auth repo
 
+## [FOR FULL API DOCUMENTATION CLICK HERE!](https://documenter.getpostman.com/view/8232021/SVmtyfDx?version=latest)
+
+---
+
 ## Proposal:
 
 What problem does your app solve?
