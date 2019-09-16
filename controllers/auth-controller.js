@@ -140,7 +140,9 @@ function checkCredentials(credentials, res) {
 function genToken(credentials) {
   const payload = {
     subject: 'credentials',
-    credential_id: credentials.credential_id,
+    user_id: credentials.user_id,
+    username: credentials.username,
+    permission_id: credentials.permission_id,
   };
   const secret = secrets.AUTH_SECRET;
   const options = {
