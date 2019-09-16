@@ -31,8 +31,7 @@ Content-Type: application/json
 
 {
   "username": "testAccount1",
-  "password": "password",
-  "user_id": 1
+  "password": "password"
 }
 
 #  RESPONSE BODY:
@@ -57,7 +56,7 @@ Content-Type: application/json
 #   "message":"Login Successful. Welcome testAccount1",
 #   "session":{
 #     "session_id":1,
-#     "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoiY3JlZGVudGlhbHMiLCJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InRlc3RBY2NvdW50MSIsInBlcm1pc3Npb25faWQiOjEsImlhdCI6MTU2ODU5NTIwNCwiZXhwIjoxNTY4NTk4ODA0fQ.4PQVmsWZXBmOEZg_Rxa_Giv_cEnABF7jeThJyywOA-Y",
+#     "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoiY3JlZGVudGlhbHMiLCJ1c2VyX2lkIjpudWxsLCJ1c2VybmFtZSI6InRlc3RBY2NvdW50MSIsInBlcm1pc3Npb25faWQiOjEsImlhdCI6MTU2ODU5NjkwNiwiZXhwIjoxNTY4NjAwNTA2fQ.Zsc48KnPSkxzf4YG3R7MCzcIG-WKTqDsVc1Cgsq-6AE",
 #     "isValid":1
 #   }
 # }
@@ -69,7 +68,7 @@ Content-Type: application/json
 {
   "session":{
     "session_id":1,
-    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoiY3JlZGVudGlhbHMiLCJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InRlc3RBY2NvdW50MSIsInBlcm1pc3Npb25faWQiOjEsImlhdCI6MTU2ODU5NTIwNCwiZXhwIjoxNTY4NTk4ODA0fQ.4PQVmsWZXBmOEZg_Rxa_Giv_cEnABF7jeThJyywOA-Y",
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoiY3JlZGVudGlhbHMiLCJ1c2VyX2lkIjpudWxsLCJ1c2VybmFtZSI6InRlc3RBY2NvdW50MSIsInBlcm1pc3Npb25faWQiOjEsImlhdCI6MTU2ODU5NjkwNiwiZXhwIjoxNTY4NjAwNTA2fQ.Zsc48KnPSkxzf4YG3R7MCzcIG-WKTqDsVc1Cgsq-6AE",
     "isValid":1
   }
 }
@@ -87,7 +86,7 @@ Content-Type: application/json
 {
   "session":{
     "session_id":1,
-    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoiY3JlZGVudGlhbHMiLCJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InRlc3RBY2NvdW50MSIsInBlcm1pc3Npb25faWQiOjEsImlhdCI6MTU2ODU5NTIwNCwiZXhwIjoxNTY4NTk4ODA0fQ.4PQVmsWZXBmOEZg_Rxa_Giv_cEnABF7jeThJyywOA-Y",
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoiY3JlZGVudGlhbHMiLCJ1c2VyX2lkIjpudWxsLCJ1c2VybmFtZSI6InRlc3RBY2NvdW50MSIsInBlcm1pc3Npb25faWQiOjEsImlhdCI6MTU2ODU5NjkwNiwiZXhwIjoxNTY4NjAwNTA2fQ.Zsc48KnPSkxzf4YG3R7MCzcIG-WKTqDsVc1Cgsq-6AE",
     "isValid":1
   }
 }
@@ -105,7 +104,7 @@ Content-Type: application/json
 {
   "session":{
     "session_id":1,
-    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoiY3JlZGVudGlhbHMiLCJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InRlc3RBY2NvdW50MSIsInBlcm1pc3Npb25faWQiOjEsImlhdCI6MTU2ODU5NTIwNCwiZXhwIjoxNTY4NTk4ODA0fQ.4PQVmsWZXBmOEZg_Rxa_Giv_cEnABF7jeThJyywOA-Y",
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoiY3JlZGVudGlhbHMiLCJ1c2VyX2lkIjpudWxsLCJ1c2VybmFtZSI6InRlc3RBY2NvdW50MSIsInBlcm1pc3Npb25faWQiOjEsImlhdCI6MTU2ODU5NjkwNiwiZXhwIjoxNTY4NjAwNTA2fQ.Zsc48KnPSkxzf4YG3R7MCzcIG-WKTqDsVc1Cgsq-6AE",
     "isValid":1
   }
 }

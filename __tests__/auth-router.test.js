@@ -37,7 +37,6 @@ describe('POST /register', function() {
     let credentials = {
       username: `testAccount1`,
       password: `password`,
-      user_id: 11,
     };
     request(api)
       .post('/register')
@@ -67,7 +66,6 @@ describe('POST /register', function() {
     let credentials = {
       username: `testAccount2`,
       password: `password`,
-      user_id: 12,
     };
     request(api)
       .post('/register')
