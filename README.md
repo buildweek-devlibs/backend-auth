@@ -4,6 +4,12 @@
 
 ---
 
+API Deploy: https://buildweek-devlibs-api.herokuapp.com/
+
+AUTH Deploy: https://buildweek-devlibs-auth.herokuapp.com/
+
+---
+
 ## Proposal:
 
 What problem does your app solve?
